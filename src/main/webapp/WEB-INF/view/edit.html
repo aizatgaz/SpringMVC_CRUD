@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Task</title>
+  <!-- Bootstrap CSS (add the appropriate link to your project) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-GLhlTQ8iKt6qtz1Xn6Z7LEH3/ApNbZD+i7u8vEN/6qDiiEwwKf5KusjGMOp4meM"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-3">
+  <h1>Edit Task</h1>
+  <form th:action="@{'/edit/' + ${task.id}}" method="post">
+    <label for="id">ID:</label>
+    <span th:text="${task.id}"></span>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" th:value="${task.description}" required>
+    <label for="status">Status:</label>
+    <select id="status" name="status" th:field="${task.status}" required>
+      <option value="PAUSED" th:selected="${task.status == 'PAUSED'}">PAUSED</option>
+      <option value="IN_PROGRESS" th:selected="${task.status == 'IN_PROGRESS'}">IN_PROGRESS</option>
+      <option value="DONE" th:selected="${task.status == 'DONE'}">DONE</option>
+    </select>
+    <button type="submit" class="btn btn-success">Save Changes</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS (add the appropriate link to your project) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"
+        integrity="sha384-MB/bp5CyCIoFjD0rEXukXm7zkJPK0LVI4MlulBtmzimz5B6EGZ15/SaF1AabL4r"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-b4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyStl5+W9XUZ41Npq2nQuCVyOI5v4oDh/K"
+        crossorigin="anonymous"></script>
+</body>
+</html>
