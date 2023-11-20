@@ -14,7 +14,7 @@ mvn clean install
 ```
 2. Build docker images and run the containers
 ```
-docker compose up
+docker-compose up
 ```
 3. Apply [tasks.sql](./tasks.sql) script to MySQL.
 4. Open http://localhost:7777/tasks/  
